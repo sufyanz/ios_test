@@ -7,16 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WEPopoverController.h"
+#import "WEPopoverContentViewController.h"
 
-@class DetailViewController;
+@interface MasterViewController : UITableViewController<UISplitViewControllerDelegate,UIPopoverControllerDelegate,PopoverControllerDelegate>
+{
+    
+    NSArray *AryFiles;
+    
+    NSMutableArray *data;
+    UIPopoverController *popoverController;
+        WEPopoverController *statusPopover;
 
-#import <CoreData/CoreData.h>
-
-@interface MasterViewController : UITableViewController <NSFetchedResultsControllerDelegate>
-
-@property (strong, nonatomic) DetailViewController *detailViewController;
-
-@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
-@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+}
+@property (nonatomic, retain) UIPopoverController *popoverController;
+@property (nonatomic, strong) WEPopoverController *statusPopover;
+@property int Type;
 
 @end
