@@ -62,6 +62,20 @@
   AryFiles = [[NSArray alloc] initWithArray:[DM getFileData:[NSString stringWithFormat:@"%d",self.Type]]];
     
     NSLog(@"AryFiles %@",AryFiles);
+    PageNo = 1;
+    AryPagedFiles  = [[NSMutableArray alloc] init];
+if(AryFiles.count > 20)
+{
+    for(int i = 0 ; i < 20 ; i++)
+    {
+        [AryPagedFiles addObject:[AryFiles objectAtIndex:i]];
+    }
+}
+    else
+    {
+        [AryPagedFiles addObjectsFromArray:AryFiles];
+    }
+    
   //  [DM getFileData:[NSString stringWithFormat:@"%d",self.Type]];
     
     data = [[NSMutableArray alloc]init];
@@ -101,7 +115,10 @@
 {
     if(tableView == self.tableView)
     {
-    return [AryFiles count];
+        if(AryPagedFiles.count >= AryFiles.count)
+    return [AryPagedFiles count];
+        else
+            return ([AryPagedFiles count] + 1);
     }
     else
     {
@@ -115,6 +132,23 @@
     if(tableView == self.tableView)
     {
     
+        if(indexPath.row == [AryPagedFiles count])
+        {
+            static NSString *CellIdentifier = @"CellIdentifier";
+            
+            // Dequeue or create a cell of the appropriate type.
+            UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+            if (cell == nil) {
+                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+                cell.accessoryType = UITableViewCellAccessoryNone;
+            }
+            [cell.textLabel setFont:[UIFont fontWithName:@"Bold" size:20]];
+            
+            // Configure the cell.
+            cell.textLabel.text =@"Load More Records";
+            return cell;
+        }
+        
     
     static NSString *DTComplainCellIdentifier = @"FileViewCell";
     
@@ -140,7 +174,7 @@
             }
         }
     }
-    FileInfo *fi = [AryFiles objectAtIndex:indexPath.row];
+    FileInfo *fi = [AryPagedFiles objectAtIndex:indexPath.row];
     
     Cell.lblFileName.text = [fi name];
     Cell.lblFilePath.text = [fi path];
@@ -208,6 +242,34 @@
 {
         if(tableView == self.tableView)
         {
+            if(indexPath.row == [AryPagedFiles count])
+            {
+                NSLog(@"Ary count %d",(AryFiles.count - AryPagedFiles.count));
+                int diff = (AryFiles.count - AryPagedFiles.count);
+                [AryPagedFiles removeAllObjects];
+                PageNo = PageNo + 1;
+         
+                
+                if(diff < 20)
+                {
+                    NSLog(@"get in");
+                    for(int i = 0 ; i < AryFiles.count ; i++)
+                    {
+                        [AryPagedFiles addObject:[AryFiles objectAtIndex:i]];
+                    }
+              
+                }
+                else{
+                    for(int i = 0 ; i < (20 *PageNo) ; i++)
+                    {
+                        [AryPagedFiles addObject:[AryFiles objectAtIndex:i]];
+                    }
+                }
+                
+                [self.tableView reloadData];
+                return;
+            }
+            
     //show popover
       if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
       {

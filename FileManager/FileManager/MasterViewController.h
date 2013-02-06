@@ -14,6 +14,8 @@
 {
     
     NSArray *AryFiles;
+    NSMutableArray *AryPagedFiles;
+    int PageNo;
     
     NSMutableArray *data;
     UIPopoverController *popoverController;
