@@ -10,7 +10,6 @@
 
 #import "HomeViewController.h"
 
-#import "DetailViewController.h"
 #import "MasterViewController.h"
 
 @implementation AppDelegate
