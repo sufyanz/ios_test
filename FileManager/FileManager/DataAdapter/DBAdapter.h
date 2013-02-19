@@ -12,7 +12,7 @@
     NSManagedObjectContext *managedObjectContext;
 }
 
-@property (retain, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 
 
 - (NSArray *)queryDBForEntity:(NSString *)entityName predicate:(NSPredicate *)predicate sortByField:(NSString *)sortField;

@@ -23,6 +23,6 @@
 -(IBAction)GetDataFromFile;
 -(NSArray *)getAccountData;
 -(NSArray *)getFileData:(NSString *)Type;
-@property (nonatomic, assign) id<GenericCallResponse> delegate;
-@property(nonatomic,retain)FileDBManager *db;
+@property (nonatomic, weak) id<GenericCallResponse> delegate;
+@property(nonatomic,strong)FileDBManager *db;
 @end

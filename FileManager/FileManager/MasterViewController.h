@@ -22,7 +22,7 @@
         WEPopoverController *statusPopover;
 
 }
-@property (nonatomic, retain) UIPopoverController *popoverController;
+@property (nonatomic, strong) UIPopoverController *popoverController;
 @property (nonatomic, strong) WEPopoverController *statusPopover;
 @property int Type;
 

@@ -12,7 +12,7 @@
 
 @implementation FileDBManager
 + (FileDBManager *)create{
-    return [[[FileDBManager alloc]init] autorelease];
+    return [[FileDBManager alloc]init];
 }
 
 -(AccountInfo*)insertAccountInfo:(NSString*)availableSpace mode:(NSString*)mode pendingRequest:(NSNumber*)pendingRequest  revisionID:(NSNumber*)revisionID  totalSpace:(NSString*)totalSpace  usedSpace:(NSString*)usedSpace

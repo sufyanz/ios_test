@@ -26,36 +26,5 @@
     // Configure the view for the selected state
 }
 
-- (void)dealloc
-{
-    [lblFileName release];
-    lblFileName = nil;
-    
-    [lblFilePath release];
-    lblFilePath = nil;
-    
-    [lblIsShared release];
-    lblIsShared = nil;
-    
-    [lblSharedBy release];
-    lblSharedBy = nil;
-    
-    [lblSharedDate release];
-    lblSharedDate = nil;
-    
-    [lblSize release];
-    lblSize = nil;
-    
-    [lblStatus release];
-    lblStatus = nil;
-    
-    [lblType release];
-    lblType = nil;
-    
-    [lblUpdatedDate release];
-    lblUpdatedDate = nil;
-    
-    [super dealloc];
-}
 
 @end

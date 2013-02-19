@@ -11,12 +11,12 @@
 @class FileInfo;
 
 @interface AccountInfo : NSManagedObject
-@property (nonatomic, retain) NSString * availableSpace;
-@property (nonatomic, retain) NSString * mode;
-@property (nonatomic, retain) NSNumber * pendingRequest;
-@property (nonatomic, retain) NSNumber * revisionID;
-@property (nonatomic, retain) NSString * totalSpace;
-@property (nonatomic, retain) NSString * usedSpace;
+@property (nonatomic, strong) NSString * availableSpace;
+@property (nonatomic, strong) NSString * mode;
+@property (nonatomic, strong) NSNumber * pendingRequest;
+@property (nonatomic, strong) NSNumber * revisionID;
+@property (nonatomic, strong) NSString * totalSpace;
+@property (nonatomic, strong) NSString * usedSpace;
 
 
 @end

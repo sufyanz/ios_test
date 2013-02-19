@@ -21,13 +21,13 @@
       IBOutlet UILabel *lblUpdatedDate;
     
 }
-@property (nonatomic, retain) IBOutlet UILabel *lblFileName;
-@property (nonatomic, retain) IBOutlet UILabel *lblFilePath;
-@property (nonatomic, retain) IBOutlet UILabel *lblStatus;
-@property (nonatomic, retain) IBOutlet UILabel *lblIsShared;
-@property (nonatomic, retain) IBOutlet UILabel *lblSharedBy;
-@property (nonatomic, retain) IBOutlet UILabel *lblSize;
-@property (nonatomic, retain) IBOutlet UILabel *lblType;
-@property (nonatomic, retain) IBOutlet UILabel *lblSharedDate;
-@property (nonatomic, retain) IBOutlet UILabel *lblUpdatedDate;
+@property (nonatomic, strong) IBOutlet UILabel *lblFileName;
+@property (nonatomic, strong) IBOutlet UILabel *lblFilePath;
+@property (nonatomic, strong) IBOutlet UILabel *lblStatus;
+@property (nonatomic, strong) IBOutlet UILabel *lblIsShared;
+@property (nonatomic, strong) IBOutlet UILabel *lblSharedBy;
+@property (nonatomic, strong) IBOutlet UILabel *lblSize;
+@property (nonatomic, strong) IBOutlet UILabel *lblType;
+@property (nonatomic, strong) IBOutlet UILabel *lblSharedDate;
+@property (nonatomic, strong) IBOutlet UILabel *lblUpdatedDate;
 @end

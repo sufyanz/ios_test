@@ -35,7 +35,6 @@
     MasterViewController *mv = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
     mv.Type = 1;
     [self.navigationController pushViewController:mv animated:YES];
-    [mv release];
 
 }
 -(IBAction)ShowSharedFiles:(id)sender
@@ -43,7 +42,6 @@
     MasterViewController *mv = [[MasterViewController alloc] initWithNibName:@"MasterViewController_iPhone" bundle:nil];
     mv.Type = 2;
     [self.navigationController pushViewController:mv animated:YES];
-    [mv release];
 }
 
 -(NSString *)Getinvo:(NSString *)val
@@ -124,14 +122,12 @@
             
         }
 
-    [DM  release];
     
         
     }else
     {
         UIAlertView *Ai = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Database error Occured" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
         [Ai show];
-        [Ai release];
     }
     
         [SVProgressHUD dismiss];
@@ -140,7 +136,6 @@
 {
     UIAlertView *Ai = [[UIAlertView alloc] initWithTitle:@"Error" message:value delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil];
     [Ai show];
-    [Ai release];
     
         [SVProgressHUD dismiss];
 }

@@ -39,10 +39,6 @@
     return self;
 }
 							
-- (void)dealloc
-{
-    [super dealloc];
-}
 
 - (void)configureView
 {
@@ -139,7 +135,7 @@ if(AryFiles.count > 20)
             // Dequeue or create a cell of the appropriate type.
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             if (cell == nil) {
-                cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                 cell.accessoryType = UITableViewCellAccessoryNone;
             }
             [cell.textLabel setFont:[UIFont fontWithName:@"Bold" size:20]];
@@ -194,7 +190,7 @@ if(AryFiles.count > 20)
         // Dequeue or create a cell of the appropriate type.
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
         if (cell == nil) {
-            cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
         [cell.textLabel setFont:[UIFont fontWithName:@"Bold" size:20]];
@@ -282,7 +278,6 @@ if(AryFiles.count > 20)
           [table setDelegate:self];
           [table setRowHeight:80];
           [self.view addSubview:table];
-          [table release];
           [popoverView addSubview:table];
           popoverContent.view = popoverView;
           popoverContent.contentSizeForViewInPopover = CGSizeMake(250, 304);
@@ -297,8 +292,6 @@ if(AryFiles.count > 20)
      
           
           //release the popover content
-          [popoverView release];
-          [popoverContent release];
       }
             else
             {

@@ -12,26 +12,26 @@
 
 @interface FileInfo : NSManagedObject
 
-@property (nonatomic, retain) NSString * createdDate;
-@property (nonatomic, retain) NSString * fileType;
-@property (nonatomic, retain) NSString * is_Share;
-@property (nonatomic, retain) NSString * itemID;
-@property (nonatomic, retain) NSString * lastUpdatedBy;
-@property (nonatomic, retain) NSString * lastUpdatedDate;
-@property (nonatomic, retain) NSString * link;
-@property (nonatomic, retain) NSString * mimeType;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSString * parentID;
-@property (nonatomic, retain) NSString * path;
-@property (nonatomic, retain) NSString * pathByID;
-@property (nonatomic, retain) NSString * shareBy;
-@property (nonatomic, retain) NSString * shareDate;
-@property (nonatomic, retain) NSString * shareID;
-@property (nonatomic, retain) NSString * shareLevel;
-@property (nonatomic, retain) NSString * size;
-@property (nonatomic, retain) NSString * status;
-@property (nonatomic, retain) NSString * type;
-@property (nonatomic, retain) NSString * userID;
-@property (nonatomic, retain) NSManagedObject *account;
+@property (nonatomic, strong) NSString * createdDate;
+@property (nonatomic, strong) NSString * fileType;
+@property (nonatomic, strong) NSString * is_Share;
+@property (nonatomic, strong) NSString * itemID;
+@property (nonatomic, strong) NSString * lastUpdatedBy;
+@property (nonatomic, strong) NSString * lastUpdatedDate;
+@property (nonatomic, strong) NSString * link;
+@property (nonatomic, strong) NSString * mimeType;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSString * parentID;
+@property (nonatomic, strong) NSString * path;
+@property (nonatomic, strong) NSString * pathByID;
+@property (nonatomic, strong) NSString * shareBy;
+@property (nonatomic, strong) NSString * shareDate;
+@property (nonatomic, strong) NSString * shareID;
+@property (nonatomic, strong) NSString * shareLevel;
+@property (nonatomic, strong) NSString * size;
+@property (nonatomic, strong) NSString * status;
+@property (nonatomic, strong) NSString * type;
+@property (nonatomic, strong) NSString * userID;
+@property (nonatomic, strong) NSManagedObject *account;
 
 @end

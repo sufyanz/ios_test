@@ -14,16 +14,6 @@
 
 @implementation AppDelegate
 
-- (void)dealloc
-{
-    [_window release];
-    [_managedObjectContext release];
-    [_managedObjectModel release];
-    [_persistentStoreCoordinator release];
-    [_navigationController release];
-    [_splitViewController release];
-    [super dealloc];
-}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
@@ -31,17 +21,17 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     HomeViewController *masterViewController;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        masterViewController = [[[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil] autorelease];
+        masterViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController" bundle:nil];
     }
     else
     {
-         masterViewController = [[[HomeViewController alloc] initWithNibName:@"HomeViewController_Pad" bundle:nil] autorelease];
+         masterViewController = [[HomeViewController alloc] initWithNibName:@"HomeViewController_Pad" bundle:nil];
     }
-        self.navigationController = [[[UINavigationController alloc] initWithRootViewController:masterViewController] autorelease];
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:masterViewController];
         self.window.rootViewController = self.navigationController;
      //   masterViewController.managedObjectContext = self.managedObjectContext;
    /* } else {

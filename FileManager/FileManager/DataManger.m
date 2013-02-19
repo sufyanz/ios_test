@@ -15,26 +15,24 @@
 @synthesize db;
 -(NSArray *)getAccountData
 {
-        db=[[FileDBManager create] retain];
+        db=[FileDBManager create];
     
   return [db getAllRecordsFromEntity:@"AccountInfo"];
-    [db release];
     
 }
 
 -(NSArray *)getFileData:(NSString *)Type
 {
-    db=[[FileDBManager create] retain];
+    db=[FileDBManager create];
     NSPredicate *pred = [NSPredicate predicateWithFormat:@"fileType == %@", Type];
     return [db getAllRecordsFromEntity:@"FileInfo" pred:pred];
-    [db release];
 }
 -(IBAction)GetDataFromFile
 {
   
     NSString *urlString = @"https://gist.github.com/raw/4680060/aac6d818e7103edfe721e719b1512f707bcfb478/sample.json";
     
-    
+
     ASIHTTPRequest *fdRequest = [[ASIHTTPRequest alloc] initWithURL:[NSURL URLWithString:urlString]];
     
     [fdRequest addRequestHeader:@"User-Agent" value:@"ASIHTTPRequest"];
@@ -45,6 +43,7 @@
     [fdRequest setDidFailSelector:@selector(fetchDataFailed:)];
     [fdRequest setDidFinishSelector:@selector(fetchDataFinished:)];
     [fdRequest startAsynchronous];
+  
 }
 
 - (void)fetchDataFailed:(ASIHTTPRequest *)request
@@ -55,7 +54,7 @@
 }         
 - (void)fetchDataFinished:(ASIHTTPRequest *)request
 {
-    db=[[FileDBManager create] retain];
+    db=[FileDBManager create];
     NSLog(@"JSON got %@",[request responseString]);
     
     NSDictionary *Result = [request.responseString objectFromJSONString];
@@ -95,7 +94,7 @@
     }
     
     
-    [db release];
+
 
 }
 

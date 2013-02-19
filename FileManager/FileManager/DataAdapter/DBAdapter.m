@@ -34,8 +34,6 @@
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortField ascending:YES]; 
         NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil]; 
         [request setSortDescriptors:sortDescriptors]; 
-        [sortDescriptors release]; 
-        [sortDescriptor release];
     }
     
     if(predicate != nil)
@@ -44,7 +42,6 @@
     NSError *error; 
     //    NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy]; 
     NSArray *fetchResults = [[self managedObjectContext] executeFetchRequest:request error:&error]; 
-    [request release];
     
     if (fetchResults == nil) {
         NSLog(@"Error fetching result %@", [error description]);
@@ -62,8 +59,6 @@
         NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:sortField ascending:ASC];
         NSArray *sortDescriptors = [[NSArray alloc]initWithObjects:sortDescriptor, nil];
         [request setSortDescriptors:sortDescriptors];
-        [sortDescriptors release];
-        [sortDescriptor release];
     }
     
     if(predicate != nil)
@@ -72,7 +67,6 @@
     NSError *error;
     //    NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
     NSArray *fetchResults = [[self managedObjectContext] executeFetchRequest:request error:&error];
-    [request release];
     
     if (fetchResults == nil) {
         NSLog(@"Error fetching result %@", [error description]);
@@ -137,14 +131,9 @@
 }
 
 + (DBAdapter *)create{
-    return [[[DBAdapter alloc]init] autorelease]; 
+    return [[DBAdapter alloc]init]; 
 }
 
-- (void)dealloc{
-    [managedObjectContext release];
-    [super dealloc];
-
-}
 
 
 
